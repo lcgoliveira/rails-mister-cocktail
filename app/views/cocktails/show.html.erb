@@ -1,0 +1,13 @@
+1 lines (9 sloc)  326 Bytes
+  
+<h1>Esse é o drink: <%= @cocktail.name %></h1>
+
+<ul>
+   <% @cocktail.doses.each do |dose| %>
+    <li>
+      <%= dose.description %> <%= dose.ingredient.name %> <%= link_to "remova essa dose", dose_path(dose), method: :delete %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Crie a sua dose!", new_cocktail_dose_path(@cocktail) %>
